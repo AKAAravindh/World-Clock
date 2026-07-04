@@ -6,7 +6,7 @@ A modern **World Clock application** built using **Vite + React**, allowing user
 
 ## 🚀 Live Demo
 
-👉 **[View Live Project](YOUR_LIVE_DEMO_LINK_HERE)**
+👉 **[View Live Project](https://akaaravindh-worldclock.netlify.app/)**
 
 ---
 
