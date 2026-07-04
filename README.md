@@ -38,6 +38,4 @@ Built as a practice project to improve React fundamentals, state management, and
 - 🎯 React Icons
 
 ---
-│
-├── App.jsx
-└── main.jsx
+
