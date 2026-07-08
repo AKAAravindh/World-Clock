@@ -1,16 +1,41 @@
-# React + Vite
+# 🌍 World Clock App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern **World Clock application** built using **Vite + React**, allowing users to explore global time zones, search locations, and manage favorite time zones in real time.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Live Demo
 
-## React Compiler
+👉 **[View Live Project](https://akaaravindh-worldclock.netlify.app/)**
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 📖 Overview
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+This project helps users view and manage **real-time world time zones** in a clean and interactive UI. Users can search time zones, mark favorites, and quickly switch between different regions.
+
+Built as a practice project to improve React fundamentals, state management, and working with JavaScript Date/Intl APIs.
+
+---
+
+## ✨ Features
+
+- 🌍 View all available world time zones  
+- 🔍 Search time zones instantly  
+- ⭐ Add / remove favorites  
+- ⚡ Real-time updates using custom hooks  
+- 🎯 Clean sidebar-based UI  
+- 📱 Responsive design  
+
+---
+
+## 🛠️ Tech Stack
+
+- ⚡ Vite
+- ⚛️ React.js
+- 🎨 Tailwind CSS
+- ⏱️ JavaScript Date & Intl API
+- 🎯 React Icons
+
+---
+
