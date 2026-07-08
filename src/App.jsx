@@ -8,7 +8,6 @@ import { MdLocationOff } from "react-icons/md";
 
 function App() {
   const now = useClock();
-  const [isHour12, setIsHour12] = useState(true);
   const homeTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -18,6 +17,9 @@ function App() {
   const [favorite, setFavorite] = useState(() => {
     return load("favorites", []);
   });
+  const [isHour12, setIsHour12] = useState(() => {
+    return load("isHour12", true);
+  });
 
   useEffect(() => {
     save("selectedTimeZone", selectedTimeZone);
@@ -25,6 +27,9 @@ function App() {
   useEffect(() => {
     save("favorites", favorite);
   }, [favorite]);
+  useEffect(() => {
+    save("isHour12", isHour12);
+  }, [isHour12]);
 
   const toggleFavorite = (item) => {
     setFavorite((prev) => {
@@ -46,6 +51,7 @@ function App() {
         now={now}
         isHour12={isHour12}
         favorite={favorite}
+        setIsHour12={setIsHour12}
         homeTimeZone={homeTimeZone}
         toggleSidebar={toggleSidebar}
         toggleFavorite={toggleFavorite}

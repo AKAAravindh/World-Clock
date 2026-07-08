@@ -1,5 +1,6 @@
 import Card from "./Card";
 function OtherRegions({
+  isHour12,
   favorite,
   now,
   setSelectedTimeZone,
@@ -9,6 +10,7 @@ function OtherRegions({
   return (
     <div className="pb-20 flex flex-wrap gap-2">
       <Card
+        isHour12={isHour12}
         now={now}
         fz={homeTimeZone}
         home={true}
@@ -16,6 +18,7 @@ function OtherRegions({
       />
       {favorite?.map((fz, i) => (
         <Card
+          isHour12={isHour12}
           home={false}
           now={now}
           key={i}

@@ -6,6 +6,7 @@ function DesktopLayout({
   now,
   isHour12,
   favorite,
+  setIsHour12,
   homeTimeZone,
   toggleSidebar,
   toggleFavorite,
@@ -16,6 +17,8 @@ function DesktopLayout({
     <div className="min-h-screen w-full text-gray-900 font-mono">
       <div className="bg-gray-500/40">
         <Header
+          isHour12={isHour12}
+          setIsHour12={setIsHour12}
           homeTimeZone={homeTimeZone}
           toggleSidebar={toggleSidebar}
           setSelectedTimeZone={setSelectedTimeZone}
@@ -29,6 +32,7 @@ function DesktopLayout({
       </div>
       <SecondSection
         now={now}
+        isHour12={isHour12}
         favorite={favorite}
         homeTimeZone={homeTimeZone}
         toggleFavorite={toggleFavorite}

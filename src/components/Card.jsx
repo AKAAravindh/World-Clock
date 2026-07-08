@@ -1,7 +1,14 @@
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { BiCurrentLocation } from "react-icons/bi";
 
-function Card({ fz, now, setSelectedTimeZone, toggleFavorite, home }) {
+function Card({
+  fz,
+  now,
+  setSelectedTimeZone,
+  toggleFavorite,
+  home,
+  isHour12,
+}) {
   return (
     <div
       className="border-2 rounded-2xl p-3 border-gray-600/30 flex flex-col justify-between cursor-pointer gap-2"
@@ -18,6 +25,7 @@ function Card({ fz, now, setSelectedTimeZone, toggleFavorite, home }) {
           </span>
         ) : (
           <span
+            id="favoriteCloseButton"
             className="text-red-600/60 hover:text-red-600"
             onClick={() => toggleFavorite(fz)}
           >
@@ -29,12 +37,9 @@ function Card({ fz, now, setSelectedTimeZone, toggleFavorite, home }) {
         <h3 className="text-[1.6rem] leading-none">
           {now.toLocaleTimeString("en-US", {
             timeZone: fz,
-            hour12: false,
+            hour12: isHour12,
           })}
         </h3>
-        {/* <p className="flex flex-wrap justify-center items-center">
-          <span>🌙</span> Night
-        </p> */}
       </div>
     </div>
   );

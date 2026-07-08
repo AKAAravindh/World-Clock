@@ -2,6 +2,7 @@ import OtherRegions from "./OtherRegions";
 
 function SecondSection({
   now,
+  isHour12,
   favorite,
   setSelectedTimeZone,
   toggleFavorite,
@@ -21,6 +22,7 @@ function SecondSection({
       </div>
       <OtherRegions
         now={now}
+        isHour12={isHour12}
         favorite={favorite}
         homeTimeZone={homeTimeZone}
         toggleFavorite={toggleFavorite}
