@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { load, save } from "./components/utils/storage";
+import { load, save } from "./utils/storage";
 import DesktopLayout from "./components/DesktopLayout";
 import Sidebar from "./components/Sidebar";
 import useClock from "./hooks/useClock";
