@@ -1,4 +1,4 @@
-import MainLogo from "../assets/images/icons/main-logo.png";
+import MainLogo from "../assets/images/logos/logo.png";
 import { MdOutlineMyLocation } from "react-icons/md";
 
 function Header({
@@ -9,11 +9,9 @@ function Header({
   setSelectedTimeZone,
 }) {
   return (
-    <div className="text-sm flex px-[5%] items-center pt-8">
-      {/* Main Logo */}
-      <div className="flex items-center">
-        <img className="w-10 aspect-square" src={MainLogo} alt="clock icon" />
-        <h2 className="text-xl font-bold leading-none">TimesWorld</h2>
+    <div className="text-sm flex px-[6%] items-center pt-8">
+      <div className="bg-white px-2 rounded-full object-cover overflow-hidden">
+        <img className="h-14" src={MainLogo} alt="min logo icon" />
       </div>
       <nav className="flex ml-auto w-full justify-end items-center gap-10">
         <div className="flex items-center gap-2">

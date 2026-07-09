@@ -19,7 +19,7 @@ function Sidebar({ isOpen, favorite, toggleFavorite, toggleSidebar }) {
 
   return (
     <div
-      className={`bg-gray-950/90  ${sidebarClass} h-screen overflow-y-auto transition-all duration-300 ease-in-out text-sm font-mono text-gray-300 scrollbar-none relative isolate px-2 pb-2`}
+      className={`bg-gray-950/90  ${sidebarClass} h-screen overflow-y-auto transition-transform duration-500 ease-in-out text-sm font-mono text-gray-300 scrollbar-none relative isolate px-2 pb-2`}
     >
       <div className="flex gap-2 items-start fixed bg-gray-900 pr-4 h-min shadow-2xl w-75 py-3">
         <input
