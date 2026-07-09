@@ -4,6 +4,7 @@ import { BiCurrentLocation } from "react-icons/bi";
 function Card({
   fz,
   now,
+  selectedTimeZone,
   setSelectedTimeZone,
   toggleFavorite,
   home,
@@ -11,25 +12,25 @@ function Card({
 }) {
   return (
     <div
-      className="border-2 rounded-2xl p-3 border-gray-600/30 flex flex-col justify-between cursor-pointer gap-2"
+      className="border-2 rounded-2xl p-3 border-gray-200/50 flex flex-col justify-between cursor-pointer gap-2"
       onClick={() => setSelectedTimeZone(fz)}
     >
       <div className="flex justify-between items-center gap-2">
-        <span className="text-gray-600/60">
+        <span className="">
           {home ? "Now: " : null}
           {fz}
         </span>
         {home ? (
-          <span className="text-gray-600">
+          <span className="text-[#55feac]">
             <BiCurrentLocation size={20} />
           </span>
         ) : (
           <span
             id="favoriteCloseButton"
-            className="text-red-600/60 hover:text-red-600"
+            className={`${selectedTimeZone === fz ? "text-blue-500 hover:text-blue-600" : "text-red-400 hover:text-red-500"} `}
             onClick={() => toggleFavorite(fz)}
           >
-            <IoMdCloseCircleOutline size={20} />
+            <IoMdCloseCircleOutline size={20} /> 
           </span>
         )}
       </div>

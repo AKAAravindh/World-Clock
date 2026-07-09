@@ -75,7 +75,7 @@ function App() {
         />
       </div>
       <button
-        className="fixed bottom-10 right-10 bg-gray-600 text-gray-300 p-3 rounded-full z-25 cursor-pointer"
+        className="fixed bottom-10 right-10 bg-[#0073d2] text-[#BDD5EA] p-3 rounded-full z-25 cursor-pointer"
         onClick={toggleSidebar}
       >
         {isSidebarOpen ? (

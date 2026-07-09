@@ -47,7 +47,7 @@ function Sidebar({ isOpen, favorite, toggleFavorite, toggleSidebar }) {
                 {timeZone}
                 <button>
                   {favorite?.includes(timeZone) ? (
-                    <FaStar size={20} />
+                    <FaStar size={20} color="2196F3" />
                   ) : (
                     <FaRegStar size={20} />
                   )}

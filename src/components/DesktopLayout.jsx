@@ -15,7 +15,7 @@ function DesktopLayout({
 }) {
   return (
     <div className="min-h-screen w-full text-gray-900 font-mono">
-      <div className="bg-gray-500/40">
+      <div className="bg-[#BDD5EA]">
         <Header
           isHour12={isHour12}
           setIsHour12={setIsHour12}
@@ -36,6 +36,7 @@ function DesktopLayout({
         favorite={favorite}
         homeTimeZone={homeTimeZone}
         toggleFavorite={toggleFavorite}
+        selectedTimeZone={selectedTimeZone}
         setSelectedTimeZone={setSelectedTimeZone}
       />
     </div>

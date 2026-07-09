@@ -3,6 +3,7 @@ function OtherRegions({
   isHour12,
   favorite,
   now,
+  selectedTimeZone,
   setSelectedTimeZone,
   toggleFavorite,
   homeTimeZone,
@@ -23,6 +24,7 @@ function OtherRegions({
           now={now}
           key={i}
           fz={fz}
+          selectedTimeZone={selectedTimeZone}
           setSelectedTimeZone={setSelectedTimeZone}
           toggleFavorite={toggleFavorite}
         />

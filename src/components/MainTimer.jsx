@@ -31,7 +31,7 @@ function MainTimer({ now, homeTimeZone, selectedTimeZone, isHour12 }) {
   const { emoji, title, subtitle } = getGreeting(hour);
 
   return (
-    <div className="bg-transparent w-full flex flex-col border-b-2 border-white pb-12">
+    <div className="bg-transparent w-full flex flex-col pb-14">
       <h1 className="flex items-center justify-center font-extrabold text-[clamp(1.5rem,100vw,16vw)] leading-none pt-[5vw] pb-[4vw] font-timer w-full">
         <div>
           <span className="inline-block w-[2ch] text-center">
@@ -49,7 +49,7 @@ function MainTimer({ now, homeTimeZone, selectedTimeZone, isHour12 }) {
         </div>
       </h1>
       <div className="px-[7%] flex justify-between w-full items-center">
-        <h5 className="text-gray-600/60 shrink(10)">
+        <h5 className="text-gray-600/80 shrink(10)">
           TimeZone: {selectedTimeZone}
           {selectedTimeZone === homeTimeZone ? (
             <span> (Current Location)</span>

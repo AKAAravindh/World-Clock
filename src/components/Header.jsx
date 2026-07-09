@@ -21,7 +21,7 @@ function Header({
             onClick={() => setIsHour12((prev) => !prev)}
           >
             <button
-              className={`w-8 h-full rounded-full transition-all duration-500 ease-in-out ${isHour12 ? "bg-gray-700" : "translate-x-6 bg-green-700"} cursor-pointer text-white grid place-items-center text-xs`}
+              className={`w-8 h-full rounded-full transition-all duration-500 ease-in-out ${isHour12 ? "bg-gray-600" : "translate-x-6 bg-[#55feac]"} cursor-pointer text-white grid place-items-center text-xs`}
             />
           </div>
         </div>
@@ -30,7 +30,7 @@ function Header({
             className="cursor-pointer flex items-center gap-1 bg-gray-950 text-gray-50 px-4 py-1.75 rounded-full"
             onClick={() => setSelectedTimeZone(homeTimeZone)}
           >
-            Current Timezone <MdOutlineMyLocation size={20} />
+            Current Timezone <MdOutlineMyLocation size={20} color="#55feac" />
           </button>
           <button
             className="bg-gray-950 text-gray-50 px-4 py-1.75 rounded-full cursor-pointer"
