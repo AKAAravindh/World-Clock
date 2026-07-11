@@ -1,46 +1,178 @@
-import MainLogo from "../assets/images/logos/logo.png";
 import { MdOutlineMyLocation } from "react-icons/md";
+import { IoGlobeOutline } from "react-icons/io5";
+import Logo from "./Logo";
 
 function Header({
+  now,
   isHour12,
   setIsHour12,
   homeTimeZone,
   toggleSidebar,
   setSelectedTimeZone,
 }) {
+  const logoTime = now
+    ? new Date(
+        now.toLocaleString("en-US", {
+          timeZone: homeTimeZone,
+        }),
+      )
+    : new Date();
+
   return (
-    <div className="text-sm flex px-[6%] items-center pt-8">
-      <div className="bg-white px-2 rounded-full object-cover overflow-hidden">
-        <img className="h-14" src={MainLogo} alt="min logo icon" />
-      </div>
-      <nav className="flex ml-auto w-full justify-end items-center gap-10">
-        <div className="flex items-center gap-2">
-          <h5 className="text-gray-950 font-bold text-[1rem]">24hr</h5>
+    <header
+      className="
+      w-full
+      px-[clamp(1rem,6vw,6%)]
+      pt-8
+      "
+    >
+      <div
+        className="
+        flex
+        items-center
+        justify-between
+        "
+      >
+        {/* Logo */}
+
+        <Logo now={logoTime} />
+
+        {/* Controls */}
+
+        <div
+          className="
+          flex
+          items-center
+          gap-3
+
+          bg-white/40
+          backdrop-blur-xl
+
+          border
+          border-white/50
+
+          rounded-full
+
+          px-3
+          py-2
+          "
+        >
+          {/* 12/24 Toggle */}
+
           <div
-            className="bg-black p-1 rounded-full w-16 h-8 flex cursor-pointer"
-            onClick={() => setIsHour12((prev) => !prev)}
+            className="
+            hidden
+            md:flex
+            items-center
+            gap-2
+            "
           >
+            <span
+              className="
+            text-sm
+            font-semibold
+            "
+            >
+              24H
+            </span>
+
             <button
-              className={`w-8 h-full rounded-full transition-all duration-500 ease-in-out ${isHour12 ? "bg-gray-600" : "translate-x-6 bg-[#55feac]"} cursor-pointer text-white grid place-items-center text-xs`}
-            />
+              onClick={() => setIsHour12((prev) => !prev)}
+              className="
+              w-14
+              h-7
+              rounded-full
+              bg-gray-950
+              relative
+              cursor-pointer
+              hover:shadow-[inset_0_0_20px_rgba(85,254,172,0.15)]
+              "
+            >
+              <span
+                className={`
+              absolute
+              top-1
+              left-1
+              w-5
+              h-5
+              rounded-full
+              transition-all
+              duration-300
+
+              ${
+                isHour12
+                  ? "translate-x-0 bg-gray-400"
+                  : "translate-x-7 bg-[#55feac]"
+              }
+              `}
+              />
+            </button>
           </div>
-        </div>
-        <div className="flex gap-6 text-gray-950">
+
+          {/* Current Time */}
+
           <button
-            className="cursor-pointer flex items-center gap-1 bg-gray-950 text-gray-50 px-4 py-1.75 rounded-full"
             onClick={() => setSelectedTimeZone(homeTimeZone)}
+            className="flex
+  items-center
+  gap-2
+
+  rounded-full
+
+  bg-gray-950
+  text-white
+
+  px-5
+  py-2
+  text-sm
+
+  cursor-pointer
+
+  transition-all
+  duration-300
+
+  hover:shadow-[inset_0_0_20px_rgba(85,254,172,0.15)]
+  hover:text-[#55feac]
+  "
           >
-            Current Timezone <MdOutlineMyLocation size={20} color="#55feac" />
+            Current
+            <MdOutlineMyLocation size={18} color="#55feac" />
           </button>
+
+          {/* Timezones */}
+
           <button
-            className="bg-gray-950 text-gray-50 px-4 py-1.75 rounded-full cursor-pointer"
             onClick={toggleSidebar}
+            className="
+  flex
+  items-center
+  gap-2
+
+  rounded-full
+
+  bg-gray-950
+  text-white
+
+  px-5
+  py-2
+  text-sm
+
+  cursor-pointer
+
+  transition-all
+  duration-300
+
+  hover:shadow-[inset_0_0_20px_rgba(85,254,172,0.15)]
+  hover:text-[#55feac]
+  "
           >
-            All Timezones
+            <IoGlobeOutline size={18} />
+
+            <span className="hidden sm:block">Timezones</span>
           </button>
         </div>
-      </nav>
-    </div>
+      </div>
+    </header>
   );
 }
 

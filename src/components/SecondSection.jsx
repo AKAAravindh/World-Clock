@@ -10,26 +10,88 @@ function SecondSection({
   homeTimeZone,
 }) {
   return (
-    <section className="px-[7%] w-full bg-[#1b2d45] text-gray-200">
-      <div className="grid grid-cols-4 w-full pt-12 pb-2 gap-[10%] border-b-2 mb-8">
-        <h2 className="text-[clamp(2.2rem,4vw,10rem)] flex flex-col leading-none col-span-2">
-          Choose, <span className="whitespace-nowrap">From Favorites</span>
-        </h2>
-        <div className="text-center w-full h-full flex col-span-2 justify-center">
-          <p className="mt-auto text-left lg:w-[clamp(2rem,25vw,100rem)]">
-            Life moves fast, Stay on time and enjoy every moment!
+    <section
+      className="
+relative
+overflow-hidden
+px-[clamp(1rem,7vw,7%)]
+py-20
+bg-[#1b2d45]
+text-gray-200
+"
+    >
+      <div
+        className="
+max-w-7xl
+mx-auto
+"
+      >
+        {/* Heading */}
+
+        <div
+          className="
+flex
+flex-col
+md:flex-row
+md:items-end
+justify-between
+gap-8
+pb-10
+border-b
+border-white/10
+"
+        >
+          <div>
+            <p
+              className="
+text-sm
+uppercase
+tracking-[0.3em]
+text-gray-400
+"
+            >
+              World Clock
+            </p>
+
+            <h2
+              className="
+mt-3
+text-[clamp(2.5rem,5vw,5rem)]
+font-bold
+leading-[0.9]
+"
+            >
+              Choose your
+              <br />
+              <span className="text-[#55feac]">favorite</span>
+              timezones
+            </h2>
+          </div>
+
+          <p
+            className="
+max-w-md
+text-gray-400
+text-lg
+"
+          >
+            Keep track of the places that matter most. Switch between your
+            favourite locations instantly.
           </p>
         </div>
+
+        {/* Cards */}
+
+        <OtherRegions
+          isHour12={isHour12}
+          favorite={favorite}
+          now={now}
+          selectedTimeZone={selectedTimeZone}
+          setSelectedTimeZone={setSelectedTimeZone}
+          toggleFavorite={toggleFavorite}
+          homeTimeZone={homeTimeZone}
+        />
       </div>
-      <OtherRegions
-        now={now}
-        isHour12={isHour12}
-        favorite={favorite}
-        homeTimeZone={homeTimeZone}
-        toggleFavorite={toggleFavorite}
-        selectedTimeZone={selectedTimeZone}
-        setSelectedTimeZone={setSelectedTimeZone}
-      />
     </section>
   );
 }

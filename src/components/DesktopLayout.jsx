@@ -1,3 +1,5 @@
+import Divider from "./Divider";
+import Footer from "./Footer";
 import Header from "./Header";
 import MainTimer from "./MainTimer";
 import SecondSection from "./SecondSection";
@@ -17,11 +19,13 @@ function DesktopLayout({
     <div className="min-h-screen w-full text-gray-900 font-mono">
       <div className="bg-[#BDD5EA]">
         <Header
+          now={now}
+          homeTimeZone={homeTimeZone}
+          selectedTimeZone={selectedTimeZone}
+          setSelectedTimeZone={setSelectedTimeZone}
+          toggleSidebar={toggleSidebar}
           isHour12={isHour12}
           setIsHour12={setIsHour12}
-          homeTimeZone={homeTimeZone}
-          toggleSidebar={toggleSidebar}
-          setSelectedTimeZone={setSelectedTimeZone}
         />
         <MainTimer
           now={now}
@@ -39,6 +43,8 @@ function DesktopLayout({
         selectedTimeZone={selectedTimeZone}
         setSelectedTimeZone={setSelectedTimeZone}
       />
+      <Divider />
+      <Footer />
     </div>
   );
 }

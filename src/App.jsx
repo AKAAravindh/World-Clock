@@ -59,29 +59,41 @@ function App() {
         setSelectedTimeZone={setSelectedTimeZone}
       />
 
-      <div className="fixed top-0 right-0 h-screen z-50 shadow-2xl">
-        {isSidebarOpen ? (
-          <div
-            className="absolute translate-x-[-100vw] h-screen w-screen bg-black/40 z-25"
-            onClick={toggleSidebar}
-          />
-        ) : null}
-        <Sidebar
-          isHour12={isHour12}
-          isOpen={isSidebarOpen}
-          favorite={favorite}
-          toggleFavorite={toggleFavorite}
-          toggleSidebar={toggleSidebar}
-        />
-      </div>
+      {/* Sidebar */}
+
+      <Sidebar
+        isHour12={isHour12}
+        isOpen={isSidebarOpen}
+        favorite={favorite}
+        toggleFavorite={toggleFavorite}
+        toggleSidebar={toggleSidebar}
+      />
+
+      {/* Floating Button */}
+
       <button
-        className="fixed bottom-10 right-10 bg-[#0073d2] text-[#BDD5EA] p-3 rounded-full z-25 cursor-pointer"
+        className="fixed bottom-8 right-8 h-14 cursor-pointer
+  w-14
+
+  grid
+  place-items-center
+
+  rounded-full
+
+  bg-gray-950
+  text-[#55feac]
+
+  shadow-xl
+
+  z-60
+
+  hover:scale-108 transition"
         onClick={toggleSidebar}
       >
         {isSidebarOpen ? (
-          <MdLocationOff size={30} />
+          <MdLocationOff size={26} />
         ) : (
-          <MdLocationOn size={30} />
+          <MdLocationOn size={26} />
         )}
       </button>
     </div>

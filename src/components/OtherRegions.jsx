@@ -9,7 +9,13 @@ function OtherRegions({
   homeTimeZone,
 }) {
   return (
-    <div className="pb-20 flex flex-wrap gap-2">
+    <div
+      className="mt-10
+flex
+flex-wrap
+gap-6
+items-start"
+    >
       <Card
         isHour12={isHour12}
         now={now}

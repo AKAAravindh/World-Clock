@@ -12,7 +12,32 @@ function Card({
 }) {
   return (
     <div
-      className="border-2 rounded-2xl p-3 border-gray-200/50 flex flex-col justify-between cursor-pointer gap-2"
+      className="group
+relative
+w-fit
+min-w-65
+max-w-85
+
+rounded-3xl
+
+border
+border-white/10
+
+bg-white/0.05
+
+backdrop-blur-xl
+
+p-5
+
+transition-all
+duration-300
+
+hover:-translate-y-0.5
+hover:border-[#55feac]/40
+hover:bg-white/0.08
+shadow-lg
+cursor-pointer
+"
       onClick={() => setSelectedTimeZone(fz)}
     >
       <div className="flex justify-between items-center gap-2">
@@ -30,7 +55,7 @@ function Card({
             className={`${selectedTimeZone === fz ? "text-blue-500 hover:text-blue-600" : "text-red-400 hover:text-red-500"} `}
             onClick={() => toggleFavorite(fz)}
           >
-            <IoMdCloseCircleOutline size={20} /> 
+            <IoMdCloseCircleOutline size={20} />
           </span>
         )}
       </div>

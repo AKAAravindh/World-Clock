@@ -1,71 +1,185 @@
 import { getGreeting } from "../utils/greeting";
+import { MdOutlineAccessTime } from "react-icons/md";
 
 function MainTimer({ now, homeTimeZone, selectedTimeZone, isHour12 }) {
-  const [hours, minutes, seconds, period] = now
-    .toLocaleTimeString("en-US", {
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-      hour12: isHour12,
-      timeZone: selectedTimeZone,
-      selectedTimeZone,
-    })
-    .split(/[: ]/);
+  const timeString = now.toLocaleTimeString("en-US", {
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: isHour12,
+    timeZone: selectedTimeZone,
+  });
+
+  const [hours, minutes, seconds, period] = timeString.split(/[: ]/);
 
   const date = new Intl.DateTimeFormat("en-US", {
     weekday: "long",
     year: "numeric",
     month: "long",
     day: "numeric",
+    timeZone: selectedTimeZone,
   }).format(now);
 
-  const hour = parseInt(
+  const hour = Number(
     new Intl.DateTimeFormat("en-US", {
       hour: "numeric",
       hour12: false,
       timeZone: selectedTimeZone,
     }).format(now),
-    10,
   );
 
   const { emoji, title, subtitle } = getGreeting(hour);
 
   return (
-    <div className="bg-transparent w-full flex flex-col pb-14">
-      <h1 className="flex items-center justify-center font-extrabold text-[clamp(1.5rem,100vw,16vw)] leading-none pt-[5vw] pb-[4vw] font-timer w-full">
-        <div>
-          <span className="inline-block w-[2ch] text-center">
-            {hours || "00"}
+    <section
+      className="
+      w-full
+      flex
+      flex-col
+      items-center
+      pb-16
+      "
+    >
+      {/* Main Clock */}
+
+      <div
+        className="
+        pt-[5vw]
+        pb-[6vw]
+        font-timer
+        font-extrabold
+        tracking-tight
+        text-gray-950
+
+        text-[clamp(4rem,16vw,19rem)]
+
+        leading-none
+        "
+      >
+        <span className="inline-block w-[2ch] text-center">{hours}</span>
+
+        <span>:</span>
+
+        <span className="inline-block w-[2ch] text-center">{minutes}</span>
+
+        <span>:</span>
+
+        <span className="inline-block w-[2ch] text-center">{seconds}</span>
+
+        {period && (
+          <span
+            className="
+            text-[clamp(1rem,3vw,2rem)]
+            ml-3
+            align-top
+            "
+          >
+            {period}
           </span>
-          <span>:</span>
-          <span className="inline-block w-[2ch] text-center">
-            {minutes || "00"}
-          </span>
-          <span>:</span>
-          <span className="inline-block w-[2ch] text-center">
-            {seconds || "00"}
-          </span>
-          <span className="inline-block text-2xl text-center">{period}</span>
+        )}
+      </div>
+
+      {/* Info Area */}
+
+      <div
+        className="
+        w-full
+        px-[clamp(1rem,7vw,7%)]
+
+        flex
+        flex-col
+        md:flex-row
+
+        justify-between
+        items-center
+
+        gap-6
+        "
+      >
+        {/* Timezone */}
+
+        <div
+          className="
+          flex
+          items-center
+          gap-2
+
+          bg-white/40
+          backdrop-blur-lg
+
+          border
+          border-white/50
+
+          rounded-full
+
+          px-5
+          py-2
+
+          text-sm
+          "
+        >
+          <MdOutlineAccessTime size={18} className="text-[#0f172a]" />
+
+          <span>{selectedTimeZone}</span>
+
+          {selectedTimeZone === homeTimeZone && (
+            <span
+              className="
+              text-xs
+              text-green-700
+              font-semibold
+              "
+            >
+              • Current
+            </span>
+          )}
         </div>
-      </h1>
-      <div className="px-[7%] flex justify-between w-full items-center">
-        <h5 className="text-gray-600/80 shrink(10)">
-          TimeZone: {selectedTimeZone}
-          {selectedTimeZone === homeTimeZone ? (
-            <span> (Current Location)</span>
-          ) : null}
-        </h5>
-        <div className="text-center">
-          <p>
+
+        {/* Greeting */}
+
+        <div
+          className="
+          text-center
+          "
+        >
+          <p
+            className="
+            text-lg
+            font-semibold
+            "
+          >
             {emoji} {title}
           </p>
-          <p>{subtitle}</p>
+
+          <p
+            className="
+            text-sm
+            text-gray-600
+            "
+          >
+            {subtitle}
+          </p>
         </div>
-        <div className="flex justify-between items-center gap-[15vw]">
-          <p>{date}</p>
+
+        {/* Date */}
+
+        <div
+          className="
+          text-center
+          md:text-right
+          "
+        >
+          <p
+            className="
+            text-sm
+            text-gray-600
+            "
+          >
+            {date}
+          </p>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
