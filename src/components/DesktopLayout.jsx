@@ -16,8 +16,9 @@ function DesktopLayout({
   setSelectedTimeZone,
 }) {
   return (
-    <div className="min-h-screen w-full text-gray-900 font-mono">
-      <div className="bg-[#BDD5EA]">
+    <div className="min-h-screen w-full text-gray-900 font-mono overflow-x-hidden">
+      {/* Main Area */}
+      <section className="bg-[#BDD5EA]">
         <Header
           now={now}
           homeTimeZone={homeTimeZone}
@@ -27,13 +28,16 @@ function DesktopLayout({
           isHour12={isHour12}
           setIsHour12={setIsHour12}
         />
+
         <MainTimer
           now={now}
           homeTimeZone={homeTimeZone}
           selectedTimeZone={selectedTimeZone}
           isHour12={isHour12}
         />
-      </div>
+      </section>
+
+      {/* Favourite Section */}
       <SecondSection
         now={now}
         isHour12={isHour12}
@@ -43,7 +47,9 @@ function DesktopLayout({
         selectedTimeZone={selectedTimeZone}
         setSelectedTimeZone={setSelectedTimeZone}
       />
+
       <Divider />
+
       <Footer />
     </div>
   );

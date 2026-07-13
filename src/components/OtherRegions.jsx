@@ -9,18 +9,13 @@ function OtherRegions({
   homeTimeZone,
 }) {
   return (
-    <div
-      className="mt-10
-flex
-flex-wrap
-gap-6
-items-start"
-    >
+    <div className="mt-10 grid md:grid-cols-[repeat(auto-fit,minmax(250px,320px))] gap-6">
       <Card
         isHour12={isHour12}
         now={now}
         fz={homeTimeZone}
         home={true}
+        homeTimeZone={homeTimeZone}
         setSelectedTimeZone={setSelectedTimeZone}
       />
       {favorite?.map((fz, i) => (
@@ -30,6 +25,7 @@ items-start"
           now={now}
           key={i}
           fz={fz}
+          homeTimeZone={homeTimeZone}
           selectedTimeZone={selectedTimeZone}
           setSelectedTimeZone={setSelectedTimeZone}
           toggleFavorite={toggleFavorite}

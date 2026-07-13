@@ -1,6 +1,4 @@
 export const getGreeting = (hour) => {
-
-  console.log("getGreeting called with hour:", hour);
   if (hour !== undefined && hour >= 0 && hour < 5) {
     return {
       emoji: "🌙",

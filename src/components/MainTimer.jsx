@@ -2,12 +2,14 @@ import { getGreeting } from "../utils/greeting";
 import { MdOutlineAccessTime } from "react-icons/md";
 
 function MainTimer({ now, homeTimeZone, selectedTimeZone, isHour12 }) {
+  const activeTimeZone = selectedTimeZone || homeTimeZone;
+
   const timeString = now.toLocaleTimeString("en-US", {
     hour: "2-digit",
     minute: "2-digit",
     second: "2-digit",
     hour12: isHour12,
-    timeZone: selectedTimeZone,
+    timeZone: activeTimeZone,
   });
 
   const [hours, minutes, seconds, period] = timeString.split(/[: ]/);
@@ -17,45 +19,24 @@ function MainTimer({ now, homeTimeZone, selectedTimeZone, isHour12 }) {
     year: "numeric",
     month: "long",
     day: "numeric",
-    timeZone: selectedTimeZone,
+    timeZone: activeTimeZone,
   }).format(now);
 
   const hour = Number(
     new Intl.DateTimeFormat("en-US", {
       hour: "numeric",
       hour12: false,
-      timeZone: selectedTimeZone,
+      timeZone: activeTimeZone,
     }).format(now),
   );
 
   const { emoji, title, subtitle } = getGreeting(hour);
 
   return (
-    <section
-      className="
-      w-full
-      flex
-      flex-col
-      items-center
-      pb-16
-      "
-    >
+    <section className="w-full flex flex-col items-center pb-16">
       {/* Main Clock */}
 
-      <div
-        className="
-        pt-[5vw]
-        pb-[6vw]
-        font-timer
-        font-extrabold
-        tracking-tight
-        text-gray-950
-
-        text-[clamp(4rem,16vw,19rem)]
-
-        leading-none
-        "
-      >
+      <div className="pt-[5vw] pb-[6vw] font-timer font-extrabold tracking-tight tabular-nums text-gray-950 text-[clamp(3.5rem,14vw,19rem)] leading-none">
         <span className="inline-block w-[2ch] text-center">{hours}</span>
 
         <span>:</span>
@@ -67,13 +48,7 @@ function MainTimer({ now, homeTimeZone, selectedTimeZone, isHour12 }) {
         <span className="inline-block w-[2ch] text-center">{seconds}</span>
 
         {period && (
-          <span
-            className="
-            text-[clamp(1rem,3vw,2rem)]
-            ml-3
-            align-top
-            "
-          >
+          <span className="text-[clamp(1rem,3vw,2rem)] ml-3 align-top">
             {period}
           </span>
         )}
@@ -81,55 +56,16 @@ function MainTimer({ now, homeTimeZone, selectedTimeZone, isHour12 }) {
 
       {/* Info Area */}
 
-      <div
-        className="
-        w-full
-        px-[clamp(1rem,7vw,7%)]
-
-        flex
-        flex-col
-        md:flex-row
-
-        justify-between
-        items-center
-
-        gap-6
-        "
-      >
+      <div className="w-full px-[clamp(1rem,7vw,7%)] flex flex-col md:flex-row justify-between items-center gap-6">
         {/* Timezone */}
 
-        <div
-          className="
-          flex
-          items-center
-          gap-2
-
-          bg-white/40
-          backdrop-blur-lg
-
-          border
-          border-white/50
-
-          rounded-full
-
-          px-5
-          py-2
-
-          text-sm
-          "
-        >
+        <div className="flex items-center gap-2 bg-white/[0.4] backdrop-blur-lg border border-white/[0.5] rounded-full px-5 py-2 text-sm">
           <MdOutlineAccessTime size={18} className="text-[#0f172a]" />
 
-          <span>{selectedTimeZone}</span>
+          <span>{activeTimeZone}</span>
 
-          {selectedTimeZone === homeTimeZone && (
-            <span
-              className="
-              text-xs
-              text-green-700
-              font-semibold
-              "
-            >
+          {activeTimeZone === homeTimeZone && (
+            <span className="text-xs text-green-700 font-semibold">
               • Current
             </span>
           )}
@@ -137,46 +73,18 @@ function MainTimer({ now, homeTimeZone, selectedTimeZone, isHour12 }) {
 
         {/* Greeting */}
 
-        <div
-          className="
-          text-center
-          "
-        >
-          <p
-            className="
-            text-lg
-            font-semibold
-            "
-          >
+        <div className="text-center">
+          <p className="text-lg font-semibold">
             {emoji} {title}
           </p>
 
-          <p
-            className="
-            text-sm
-            text-gray-600
-            "
-          >
-            {subtitle}
-          </p>
+          <p className="text-sm text-gray-600">{subtitle}</p>
         </div>
 
         {/* Date */}
 
-        <div
-          className="
-          text-center
-          md:text-right
-          "
-        >
-          <p
-            className="
-            text-sm
-            text-gray-600
-            "
-          >
-            {date}
-          </p>
+        <div className="text-center md:text-right">
+          <p className="text-sm text-gray-600">{date}</p>
         </div>
       </div>
     </section>

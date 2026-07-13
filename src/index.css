@@ -3,3 +3,7 @@
 @theme {
   --font-timer: "Orbitron", sans-serif;
 }
+
+html {
+  scroll-behavior: auto;
+}
